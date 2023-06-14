@@ -50,13 +50,31 @@ To run the tests locally, follow these steps:
    npm install
    ```
 
-3. Configure the project with the necessary network and contract addresses in the test configuration file.
-
-4. Run the tests:
+3. Clone the local setup repository for setting up a local node:
 
    ```
+   git clone https://github.com/matter-labs/local-setup.git
+   ```
+
+4. Navigate to the local setup directory:
+
+   ```
+   cd local-setup
+   ```
+
+5. Start the local node using Docker:
+
+   ```
+   ./start.sh
+   ```
+
+   Please ensure that Docker is installed on your system before running this command.
+
+6. Once the local node is up and running, you can proceed to run the tests:
+
+   ```
+   cd <project_directory>
    npm test
    ```
 
    This will execute the unit tests and display the results, ensuring that the farming contract functions as expected.
-
