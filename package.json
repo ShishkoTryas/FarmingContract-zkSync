@@ -1,0 +1,19 @@
+{
+  "name": "farmzksync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "dotenv": "^16.1.4",
+    "hardhat": "^2.15.0",
+    "@matterlabs/hardhat-zksync-toolbox": "^0.1.1",
+    "@openzeppelin/contracts": "^4.9.1"
+  }
+}
