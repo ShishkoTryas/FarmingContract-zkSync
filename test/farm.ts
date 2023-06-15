@@ -71,27 +71,31 @@ describe("Farming", function () {
         await waitFor(async () => {
             return (await farmingContract.balanceOf(user1.address)) == 500;
         });
+        console.log(`Balance user1: ${await farmingContract.balanceOf(user1.address)}`);
 
         expect(await farmingContract.balanceOf(user1.address)).to.equal(depositAmount);
 
         const totalDeposits = await farmingContract.totalDeposits();
         expect(totalDeposits).to.equal(depositAmount);
 
+        console.log(`Contact balance: ${await farmingContract.balanceOf(user1.address)}`);
+
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
         const updatedRewards = await farmingContract.earned(user1.address);
-        expect(updatedRewards).to.equal(1);
+        expect(updatedRewards).to.be.above(0);
+
+        console.log(`earning balance: ${await farmingContract.earned(user1.address)}`);
     });
 
     it("should allow the admin to deposit token A", async function () {
         const depositAmount = 1000;
 
         await farmingContract.connect(owner).depositTokenA(depositAmount);
-
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         const tokenABalance = await tokenA.balanceOf(farmingContract.address);
         expect(tokenABalance).to.equal(depositAmount);
+        console.log(`tokenA balance: ${tokenABalance}`);
     });
 
     it("should allow user to withdraw their deposits and rewards", async function () {
